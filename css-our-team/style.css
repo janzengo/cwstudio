@@ -1,0 +1,440 @@
+/*
+Main stylesheet
+style.css v1.0.1
+
+Project name: Lightweight Responsive Owl Carousel
+Project URL: https://demo.minimalweb.net/lightweight-responsive-owl-carousel/
+Version: 1.0
+Author: Alexey Trofimov
+Author URL: https://www.youtube.com/channel/UCp9ujOH59KWymh4O5sc6JVA
+License: GPLv3
+License URL: https://www.gnu.org/licenses/gpl-3.0.html
+
+Copyright (C) 2022 Alexey Trofimov
+
+Thank you very much for using this carousel!
+*/
+
+/*
+Table of Contents:
+
+1 - Some common styles
+2 - Carousel styles
+3 - Page footer
+4 - Responsive styles
+*/
+
+/*
+1 - Some common styles
+--------------------------------------------------------
+*/
+
+/* box sizing */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+*::before,
+*::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* clearfix */
+.mw-clearfix::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/* body */
+body {
+	color: #000000;
+	background-color: #ffffff;
+}
+
+/* main container */
+.mw-container {
+	margin: 0 auto;
+	padding: 0 20px;
+	max-width: 1040px;
+}
+
+/* page header */
+.mw-page-header {
+	margin-top: 80px;
+	padding-bottom: 95px;
+	font-family: 'Open Sans', sans-serif;
+	overflow-wrap: break-word;
+}
+
+/* page title (h1) */
+.mw-page-title {
+	display: block;
+	margin: 0 0 40px;
+	max-width: 700px;
+	font-size: 48px;
+	font-style: normal;
+	font-weight: 700;
+	letter-spacing: 0.4px;
+	line-height: 1.45;
+	color: #333944;
+}
+
+/* download link (a) */
+.mw-download-link {
+	position: relative;
+	outline: none !important;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 17px;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+	line-height: 1.8;
+	color: #005dff;
+}
+.mw-download-link::after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #005dff;
+
+	-webkit-transition: bottom 0.15s ease-out;
+	transition: bottom 0.15s ease-out;
+}
+.mw-download-link:hover,
+.mw-download-link:focus {
+	text-decoration: none;
+	color: #005dff;
+}
+.mw-download-link:hover::after,
+.mw-download-link:focus::after {
+	bottom: -5px;
+}
+
+
+/*
+2 - Carousel styles
+--------------------------------------------------------
+*/
+
+/* box-sizing for the carousel */
+.mw-border-box,
+.mw-border-box * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.mw-border-box::before,
+.mw-border-box::after,
+.mw-border-box *::before,
+.mw-border-box *::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* carousel item */
+.mw-main-carousel-item {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+.mw-main-carousel-item a {
+	outline: none !important;
+	text-decoration: none;
+
+	-webkit-transition: color 0.2s ease-out, box-shadow 0.2s ease-out;
+	transition: color 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+/* carousel item: image */
+.mw-main-carousel-media {
+	position: relative;
+	overflow: hidden;
+}
+.mw-main-carousel-media img {
+	border: 0;
+	outline: none !important;
+	display: block;
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	border-radius: 2px;
+}
+
+/* carousel item: image bg overlay */
+.mw-main-carousel-media-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff; /* It is recommended to change the color to dark ( #000000 ) for dark images. */
+	border-radius: 2px;
+	opacity: 0;
+
+	-webkit-transition: opacity 0.2s ease-out;
+	transition: opacity 0.2s ease-out;
+}
+.mw-main-carousel-media:hover .mw-main-carousel-media-overlay {
+	opacity: 0.2;
+}
+
+/* carousel item: hover icon */
+.mw-main-carousel-media-icon {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 20;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 16px;
+	color: #5aa17f; /* It is recommended to change the icon color to light ( #ffffff ) for dark images. */
+	opacity: 0;
+
+	-webkit-transform: scale(0.75);
+	transform: scale(0.75);
+
+	-webkit-transition: opacity 0.2s ease-out, -webkit-transform 0.2s ease-out;
+	transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+.mw-main-carousel-media:hover .mw-main-carousel-media-icon {
+	opacity: 1;
+
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+/* carousel item: content (figcaption) */
+.mw-main-carousel-content {
+	overflow: hidden;
+	overflow-wrap: break-word;
+	padding: 20px 0 2px;
+}
+
+/* title (h3) */
+.mw-main-carousel-title {
+	margin: 0;
+	font-size: 19px;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: 0.2px;
+	line-height: 1.6;
+	text-transform: capitalize;
+	color: #5aa17f;
+}
+.mw-main-carousel-title a {
+	color: #5aa17f;
+}
+.mw-main-carousel-title a:hover,
+.mw-main-carousel-title a:focus {
+	color: #000000;
+	box-shadow: 0 1px 0 #000000;
+}
+
+/* metadata (ul) */
+.mw-main-carousel-meta {
+	list-style: none;
+	margin: 13px 0 0;
+	padding: 0;
+	text-align: left;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: 0.6px;
+	line-height: 20px;
+	text-transform: uppercase;
+	color: #757c89;
+}
+.mw-main-carousel-meta li {
+	display: inline-block;
+	margin-right: 10px;
+}
+.mw-main-carousel-meta li:last-child {
+	margin-right: 0;
+}
+.mw-main-carousel-meta li a {
+	color: #757c89;
+}
+.mw-main-carousel-meta li a:hover,
+.mw-main-carousel-meta li a:focus {
+	color: #000000;
+}
+.mw-main-carousel-meta li i {
+	margin-right: 6px;
+	font-size: 14px;
+	position: relative;
+	top: 1px;
+	color: #757c89;
+	opacity: 0.35;
+}
+
+/* navigation buttons (prev-next) */
+.mw-main-carousel.owl-carousel .owl-nav {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 30;
+	margin-top: 0;
+	padding: 20px;
+}
+.mw-main-carousel.owl-carousel .owl-nav button {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	width: 46px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	font-size: 13px;
+	color: #5aa17f;
+	background: #ffffff;
+	border-radius: 2px;
+	outline: none;
+	box-shadow: 0 8px 10px -4px rgba(0,0,0,0.06);
+
+	-webkit-transition: color 0.2s ease-out, background 0.2s ease-out, box-shadow 0.2s ease-out;
+	transition: color 0.2s ease-out, background 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.mw-main-carousel.owl-carousel .owl-nav button.owl-prev {
+	margin-right: 5px;
+}
+.mw-main-carousel.owl-carousel .owl-nav button:hover {
+	color: #ffffff;
+	background: #5aa17f;
+	box-shadow: 0 8px 10px -2px rgba(0,0,0,0.2);
+}
+
+/* navigation dots */
+.mw-main-carousel.owl-carousel .owl-dots {
+	margin-top: 25px;
+}
+.mw-main-carousel.owl-carousel .owl-dots button {
+	outline: none;
+}
+.mw-main-carousel.owl-carousel .owl-dots .owl-dot span {
+	width: 8px;
+	height: 8px;
+	margin: 10px 8px;
+	background: #5aa17f;
+	opacity: 0.2;
+
+	-webkit-transition: opacity 0.2s ease-out;
+	transition: opacity 0.2s ease-out;
+}
+.mw-main-carousel.owl-carousel .owl-dots .owl-dot:hover span,
+.mw-main-carousel.owl-carousel .owl-dots .owl-dot.active span {
+	opacity: 1;
+}
+
+
+/*
+3 - Page footer
+--------------------------------------------------------
+*/
+
+.mw-page-footer {
+	margin-top: 95px;
+	margin-bottom: 80px;
+	overflow-wrap: break-word;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: 0.2px;
+	line-height: 1.95;
+	color: #333944;
+}
+.mw-page-footer p {
+	margin: 0 0 15px;
+}
+.mw-page-footer p:last-child {
+	margin-bottom: 0;
+}
+.mw-page-footer a {
+	outline: none !important;
+	text-decoration: none;
+	position: relative;
+	color: #5aa17f;
+
+	-webkit-transition: color 0.2s ease-out;
+	transition: color 0.2s ease-out;
+}
+.mw-page-footer a::after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1px;
+	background-color: #5aa17f;
+
+	-webkit-transition: bottom 0.15s ease-out, background-color 0.2s ease-out;
+	transition: bottom 0.15s ease-out, background-color 0.2s ease-out;
+}
+.mw-page-footer a:hover,
+.mw-page-footer a:focus {
+	text-decoration: none;
+	color: #000000;
+}
+.mw-page-footer a:hover::after,
+.mw-page-footer a:focus::after {
+	bottom: -4px;
+	background-color: #000000;
+}
+
+
+/*
+4 - Responsive styles
+--------------------------------------------------------
+*/
+
+/* 699px */
+@media (max-width: 699px) {
+
+	.mw-page-title {
+		font-size: 44px;
+	}
+
+}
+
+/* 599px */
+@media (max-width: 599px) {
+
+	.mw-page-title {
+		font-size: 40px;
+		line-height: 1.4;
+	}
+
+}
+
+/* 449px */
+@media (max-width: 449px) {
+
+	.mw-page-header {
+		margin-top: 50px;
+		padding-bottom: 65px;
+	}
+	.mw-page-title {
+		margin-bottom: 15px;
+		font-size: 30px;
+	}
+	.mw-page-footer {
+		margin-top: 65px;
+		margin-bottom: 50px;
+	}
+
+}
